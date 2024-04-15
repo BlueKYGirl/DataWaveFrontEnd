@@ -1,0 +1,67 @@
+   :root {
+    --white: #f7eedd;
+    --blue: #008dda;
+    --teal: #41c9e2;
+    --ltblue: #ace2e1;
+   }
+    body {
+        background-color: var(--white);
+        color: var(--blue);
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+
+    }
+    header {
+        display: flex;
+        justify-content: space-between;
+        background-color: black;
+      
+        
+    }
+    nav {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin-right: 20px;
+        
+        font-size: large;
+        font-weight: bold;
+        padding-left: 90px;
+    }
+    .deviceMenu {
+        display: flex;
+        justify-content: center;
+        margin-right: 100px;
+        
+        margin-left: 30px;
+       
+        
+    }
+    .deviceMenu:hover {
+        color: var(--teal);
+        cursor: pointer;
+    }
+    .accountMenu {
+        margin-right: 100px;
+        
+    }
+    .accountMenu:hover {
+        color: var(--teal);
+        cursor: pointer;
+    }
+    .login {
+        display: flex;        
+        margin-right: 20px;
+
+    }
+    .login:hover {
+        color: var(--teal);
+        cursor: pointer;
+    }
+    footer {
+        background-color: black;
+        color: var(--ltblue);
+         text-align: center;
+    }
