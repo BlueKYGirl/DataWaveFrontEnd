@@ -44,8 +44,10 @@ export function Home() {
     return (
         <>
             <Header />
+
             <h1>Home</h1>
             {user && <p>Welcome, {user.fullName}!</p>} {/* Display user's name if available */}
+
             <div className="plan-details-container">
                 {plans.map((plan) => (
                     <PlanDetails key={plan.id} plan={plan} />
