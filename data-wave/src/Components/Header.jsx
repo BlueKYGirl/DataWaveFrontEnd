@@ -1,15 +1,22 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import UserContext from '../pages/context/UserContext'; // Import the UserContext
 import '../styles/header.css';
 
 export const Header = () => {
+  const navigate = useNavigate(); // Initialize useNavigate hook
   const { userGuid, updateUserGuid } = useContext(UserContext); // Get userGuid from UserContext
 
   // Function to handle sign out
   const handleSignOut = () => {
-    // Implement your sign out logic here
-    updateUserGuid(null); // Clear userGuid
+    // Clear userGuid
+    updateUserGuid(null); 
+    // Redirect to home page
+    navigate('/');
+  };
+
+  const handleSubmit = () => {
+    navigate('/login'); 
   };
 
   return (
@@ -31,7 +38,7 @@ export const Header = () => {
             {userGuid ? (
               <h2 onClick={handleSignOut} className="link">Sign Out</h2>
             ) : (
-              <h2><Link to="/login" className="link">Sign In</Link></h2>
+              <h2 onClick={handleSubmit} className="link">Sign In</h2>
             )}
           </div>
         </nav>
