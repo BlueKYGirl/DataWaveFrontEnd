@@ -1,12 +1,32 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import UserContext from "./context/UserContext";
 import { getAllPlans } from "../services/planService";
 import { PlanDetails } from "../Components/PlanDetails"; // Import PlanDetails component
+import { getUserById } from "../services/userService"; // Import getUserById function
 import "../styles.css";
-import {Header} from "../Components/Header";
-import {Footer} from "../Components/Footer";
+import { Header } from "../Components/Header";
+import { Footer } from "../Components/Footer";
 
 export function Home() {
+    const { userGuid } = useContext(UserContext);
+    const [user, setUser] = useState(null); // State to store user details
     const [plans, setPlans] = useState([]);
+
+    useEffect(() => {
+        // Fetch user details when userGuid changes
+        const fetchUserDetails = async () => {
+            try {
+                if (userGuid) {
+                    const userData = await getUserById(userGuid);
+                    setUser(userData);
+                }
+            } catch (error) {
+                console.error("Error fetching user details:", error.message);
+            }
+        };
+
+        fetchUserDetails();
+    }, [userGuid]);
 
     useEffect(() => {
         const fetchPlans = async () => {
@@ -24,7 +44,10 @@ export function Home() {
     return (
         <>
             <Header />
-            <h1></h1>
+
+            <h1>Home</h1>
+            {user && <p>Welcome, {user.fullName}!</p>} {/* Display user's name if available */}
+
             <div className="plan-details-container">
                 {plans.map((plan) => (
                     <PlanDetails key={plan.id} plan={plan} />
