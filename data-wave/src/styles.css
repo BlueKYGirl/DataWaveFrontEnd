@@ -24,11 +24,12 @@
         display: flex;
         justify-content: flex-start;
         align-items: center;
-        margin-right: 20px;
+        margin-right: 0px;
         
         font-size: large;
         font-weight: bold;
         padding-left: 90px;
+        padding-right: 20px;
     }
     .deviceMenu {
         display: flex;
