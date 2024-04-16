@@ -1,0 +1,17 @@
+.link {
+    color: var(--blue); /* Set the default color */
+    text-decoration: none; /* Remove underline */
+  }
+  
+  .link:hover {
+    color: var(--teal); /* Change color on hover */
+    cursor: pointer;
+  }
+  
+  .link:visited {
+    /* color: var(--blue);  */
+  }
+  .login h2:hover{
+    color: var(--teal);
+  }
+  
