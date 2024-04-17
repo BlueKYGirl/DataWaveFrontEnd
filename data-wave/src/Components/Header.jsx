@@ -22,9 +22,11 @@ export const Header = () => {
   return (
     <div>
       <header>
+
         <Link to="/"> {/* Link the logo to the home page */}
-          <img alt="DataWave logo" src="../../full_logo_trans.png" />
+          <img className="headerlogo" alt="DataWave logo" src="../../logo_trans2.png" />
         </Link>
+
         <nav>
           {userGuid && (
             <>

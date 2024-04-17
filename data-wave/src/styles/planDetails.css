@@ -2,6 +2,7 @@
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
+    margin-right: 250px;
 }
 
 .plan-details {
@@ -11,9 +12,14 @@
     flex: 0 0 calc(33.33%); /* Adjust the width of each card */
     background-color: #f4f4f4;
     border: 1px solid #ddd;
-    border-radius: 5px;
+    border-radius: 6px;
     padding: 20px;
     margin-bottom: 20px;
+    margin-right: 20px;
+    margin-left: 20px;
+    box-shadow: 6px 2px 5px 0px rgba(0,0,0,0.55);
+-webkit-box-shadow: 6px 2px 5px 0px rgba(0,0,0,0.55);
+-moz-box-shadow: 6px 2px 5px 0px rgba(0,0,0,0.55);
     
 }
 

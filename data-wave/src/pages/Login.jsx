@@ -1,6 +1,8 @@
 import React, { useState, useContext } from "react";
 import UserContext from "./context/UserContext";
-import { useNavigate } from "react-router-dom"; // Import useHistory hook
+import { useNavigate, Link } from "react-router-dom"; // Import useHistory hook
+
+import "../styles.css";
 
 
 const Login = () => {
@@ -22,11 +24,12 @@ const Login = () => {
   };
 
   return (
-    <div>
+    <div className="loginContainer">
+      <img id="loginLogo" src="./logo_trans.png" alt="DataWave logo" />
       <h2>Login</h2>
       <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="email">Email:</label>
+        <div id="email">
+          <label htmlFor="email">Email: </label>
           <input
             type="email"
             id="email"
@@ -34,8 +37,8 @@ const Login = () => {
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
-        <div>
-          <label htmlFor="password">Password:</label>
+        <div id="password">
+          <label htmlFor="password">Password: </label>
           <input
             type="password"
             id="password"
@@ -43,7 +46,10 @@ const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
+        <div id="submitLogin">
         <button type="submit">Login</button>
+        </div>
+       <p>No account? No problem. <Link to="/register" >Register here </Link></p>
       </form>
     </div>
   );
