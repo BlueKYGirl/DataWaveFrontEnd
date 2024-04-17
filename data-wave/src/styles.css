@@ -8,7 +8,7 @@
         background-color: var(--white);
         color: var(--blue);
         margin: 0;
-        font-family: Arial, Helvetica, sans-serif;
+        font-family: Tahoma, Verdana, Segoe, sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
 
@@ -26,7 +26,7 @@
         align-items: center;
         margin-right: 0px;
         
-        font-size: large;
+        font-size: medium;
         font-weight: bold;
         padding-left: 90px;
         padding-right: 20px;
@@ -65,4 +65,64 @@
         background-color: black;
         color: var(--ltblue);
          text-align: center;
+         position: fixed;
+         left: 0;
+         bottom: 0;
+         width: 100%;
+    }
+    #slogan {
+        font-weight: bolder;
+        font-style: italic;
+        text-align: center;
+        margin-bottom: 50px;
+    }
+    .headerlogo {
+        height: 75px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .wordLogo {
+        margin-top: 10px;
+    }
+    .logo-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-right: 20px;
+        border-bottom: solid 3px var(--blue);
+    }
+    #welcome {
+        font-weight: bold;
+    }
+    .loginContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 40px;
+        margin-bottom: 50px;
+        margin-left: 300px;
+        margin-right: 300px;
+        padding-bottom: 40px;
+        padding-top: 6px;
+        background-color: white;
+        border-radius: 6px;
+        box-shadow: 6px 2px 5px 0px rgba(0,0,0,0.55);
+        -webkit-box-shadow: 6px 2px 5px 0px rgba(0,0,0,0.55);
+        -moz-box-shadow: 6px 2px 5px 0px rgba(0,0,0,0.55);
+    }
+    #email {
+        margin-top: 5px;
+        margin-bottom: 6px;
+    }
+    #password {
+        margin-bottom: 6px;
+    }
+    #submitLogin {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        margin-left: 100px;
+    }
+    #loginLogo {
+        width: 100px;
     }

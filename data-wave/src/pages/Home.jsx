@@ -44,15 +44,18 @@ export function Home() {
     return (
         <>
             <Header />
-
-            <h1>Home</h1>
-            {user && <p>Welcome, {user.fullName}!</p>} {/* Display user's name if available */}
-
-            <div className="plan-details-container">
-                {plans.map((plan) => (
-                    <PlanDetails key={plan.id} plan={plan} />
-                ))}
-            </div>
+            <div className="logo-container">
+           
+            <img className="wordLogo" src="./words_trans.png"/>
+            {user && <p id="welcome">Welcome, {user.fullName}!</p>} {/* Display user's name if available */}</div>
+            <h1 id="slogan">Catch a new wave in affordable device plans.</h1>
+<div className="plan-details-container">
+    {plans.map((plan) => (
+        <PlanDetails key={plan.id} plan={plan} />
+    ))}
+</div>
+           
+           
             <Footer />
         </>
     );
