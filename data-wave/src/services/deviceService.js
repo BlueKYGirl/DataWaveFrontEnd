@@ -25,6 +25,16 @@ const getAllDevicesByUserId = async (userId) => {
     }
 }
 
+const getAllDevicesByPlanUserId = async (planUserId) => {
+    try {
+        const allDevices = await getAllDevices();
+        const devices = allDevices.filter(device => device.planUserId === planUserId);
+        return devices;
+    } catch (error) {
+        throw new Error(`Failed to fetch devices for plan user with id ${planUserId}`);
+    }
+};
+
 const getDeviceById = async (id) => {
     try {
         const response = await http.get(`/device/${id}`);
@@ -51,4 +61,30 @@ const deleteDevice = async (id) => {
     }
 };
 
-export { getAllDevices, getDeviceById, createDevice, deleteDevice, getAllDevicesByUserId };
+const updateDevice = async (id, device) => {
+    try {
+        await http.put(`/device/${id}`, device);
+    } catch (error) {
+        throw new Error(`Failed to update device with id ${id}`);
+    }
+};
+
+const swapPhoneNumber = async (swapRequest) => {
+    try {
+        const response = await http.put('/device/swap', swapRequest);
+        return response.data;
+    } catch (error) {
+        throw new Error("Failed to swap phone numbers");
+    }
+};
+
+export { 
+    getAllDevices, 
+    getDeviceById, 
+    getAllDevicesByPlanUserId, 
+    getAllDevicesByUserId, 
+    createDevice, 
+    deleteDevice, 
+    updateDevice,
+    swapPhoneNumber 
+};

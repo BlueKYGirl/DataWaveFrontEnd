@@ -47,7 +47,7 @@ export function Home() {
 
             <div className="logo-container">
            
-            <img className="wordLogo" src="./words_trans.png"/>
+            <img className="wordLogo" alt="word logo" src="./words_trans.png"/>
             {user && userGuid && <p id="welcome">Welcome, {user.fullName}!</p>} {/* Display user's name if available */}</div>
             <h1 id="slogan">Catch the new wave in affordable device plans.</h1>
 <div className="plan-details-container">

@@ -2,9 +2,11 @@ import React, { useState, useEffect, useContext } from 'react';
 import { getAllPlans } from '../services/planService';
 import { createPlanUser } from '../services/planUserService';
 import UserContext from '../pages/context/UserContext'; // Adjust the path as needed
+import '../styles/addPlan.css'
 
-const AddPlanComponent = () => {
+const AddPlanComponent = ({updatePlanUserList}) => {
   const [showDropdown, setShowDropdown] = useState(false);
+  const [selectedPlan, setSelectedPlan] = useState(null);
   const [plans, setPlans] = useState([]);
   const { userGuid } = useContext(UserContext);
 
@@ -22,19 +24,36 @@ const AddPlanComponent = () => {
   }, []);
 
   const toggleDropdown = () => {
+    console.log("dropdown toggled")
+    console.log(showDropdown)
+    console.log(plans)
     setShowDropdown(!showDropdown);
   };
 
-  const addPlanUser = async (plan) => {
-    try {
-      const newPlanUser = { userId: userGuid, planId: plan.id }; // Using userId from context
-      const createdPlanUser = await createPlanUser(newPlanUser);
-      console.log('PlanUser created:', createdPlanUser);
-      // Optionally, you can perform additional actions after creating the planUser
-    } catch (error) {
-      console.error("Error creating PlanUser:", error.message);
-      // You can handle the error here, such as displaying a message to the user
+  const selectPlan = (plan) => {
+    setSelectedPlan(plan);
+    toggleDropdown(); // Close the dropdown after selecting a plan
+  };
+
+  const confirmAddPlanUser = async () => {
+    if (selectedPlan) {
+      try {
+        const newPlanUser = { userId: userGuid, planId: selectedPlan.id }; // Using userId from context
+        const createdPlanUser = await createPlanUser(newPlanUser);
+        console.log('PlanUser created:', createdPlanUser);
+        // Optionally, you can perform additional actions after creating the planUser
+        alert('Plan created successfully!');
+        setSelectedPlan(null); // Reset selectedPlan state
+        updatePlanUserList();
+      } catch (error) {
+        console.error("Error creating PlanUser:", error.message);
+        // You can handle the error here, such as displaying a message to the user
+      }
     }
+  };
+
+  const cancelSelection = () => {
+    setSelectedPlan(null);
   };
 
   return (
@@ -42,13 +61,23 @@ const AddPlanComponent = () => {
       <button onClick={toggleDropdown} className="add-plan-button">Add Plan</button>
       {showDropdown && (
         <div className="dropdown">
-          <ul>
+          <div className="dropdown-content">
             {plans.map((plan) => (
-              <li key={plan.id} onClick={() => addPlanUser(plan)}>
+              <div key={plan.id} onClick={() => selectPlan(plan)} className="dropdown-item">
                 {plan.planName}
-              </li>
+              </div>
             ))}
-          </ul>
+          </div>
+        </div>
+      )}
+      {/* Confirmation dialog */}
+      {selectedPlan && (
+        <div className="confirmation-dialog">
+          <p>Selected Plan: {selectedPlan.planName}</p>
+          <div>
+            <button onClick={confirmAddPlanUser} className="confirm-button">Confirm</button>
+            <button onClick={cancelSelection} className="cancel-button">Cancel</button>
+          </div>
         </div>
       )}
     </div>
