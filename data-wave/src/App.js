@@ -4,6 +4,8 @@ import { UserProvider } from './pages/context/UserContext';
 import { Home } from './pages/Home';
 import Login from './pages/Login';
 import Registration from './pages/Registration';
+import Account from './pages/Account';
+import Devices from './pages/Devices';
 
 function App() {
   return (
@@ -18,6 +20,11 @@ function App() {
 
           {/* Render other routes with Layout */}
           <Route path= "/" element = {<Home />} />
+
+          <Route path="/account" element={<Account />} />
+
+          <Route path="/devices" element={<Devices />} />
+
         </Routes>
       </UserProvider>
       

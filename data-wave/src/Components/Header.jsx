@@ -22,16 +22,22 @@ export const Header = () => {
   return (
     <div>
       <header>
-        <img alt="DataWave logo" src="../../full_logo_trans.png" />
+        <Link to="/"> {/* Link the logo to the home page */}
+          <img alt="DataWave logo" src="../../full_logo_trans.png" />
+        </Link>
         <nav>
           {userGuid && (
             <>
-              <div className='accountMenu'>
-                <h2>Account</h2>
-              </div>
-              <div className='deviceMenu'>
-                <h2>Devices</h2>
-              </div>
+              <Link to="/account" className="link"> {/* Link "Account" to the account page */}
+                <div className='accountMenu'>
+                  <h2>Account</h2>
+                </div>
+              </Link>
+              <Link to="/devices" className="link"> {/* Link "Devices" to the devices page */}
+                <div className='deviceMenu'>
+                  <h2>Devices</h2>
+                </div>
+              </Link>
             </>
           )}
           <div className='login'>
