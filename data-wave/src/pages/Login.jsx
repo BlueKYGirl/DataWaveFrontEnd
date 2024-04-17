@@ -49,7 +49,7 @@ const Login = () => {
         <div id="submitLogin">
         <button type="submit">Login</button>
         </div>
-       <p>No account? No problem. <Link to="/register" >Register here </Link></p>
+       <p>No account? No problem. <Link id="regLink" to="/register" >Register here </Link></p>
       </form>
     </div>
   );

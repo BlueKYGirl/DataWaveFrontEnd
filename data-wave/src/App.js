@@ -16,7 +16,7 @@ function App() {
           <Route path="/login" element={<Login />} />
 
           {/* Render Registration without Layout */}
-          <Route path="/registration" element={<Registration />} />
+          <Route path="/register" element={<Registration />} />
 
           {/* Render other routes with Layout */}
           <Route path= "/" element = {<Home />} />
