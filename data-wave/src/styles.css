@@ -112,17 +112,44 @@
         -moz-box-shadow: 6px 2px 5px 0px rgba(0,0,0,0.55);
     }
     #email {
+        display: flex;
+       justify-content: space-between;
+       align-items:center;
         margin-top: 5px;
         margin-bottom: 6px;
     }
     #password {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         margin-bottom: 6px;
     }
     #submitLogin {
+        display: flex;
+        justify-content: center;
         margin-top: 10px;
         margin-bottom: 10px;
-        margin-left: 100px;
+        
     }
     #loginLogo {
         width: 100px;
+    }
+    #regLink:link {
+        text-decoration:none;
+
+    }
+    #regLink:hover {
+        color: var(--teal);
+        cursor: pointer;
+    }
+    #regLink:active {
+       
+        color: var(--ltblue);
+    }
+    #regLink:visited {
+        color: var(--teal);
+    }
+    button:hover {
+        color: var(--blue);
+        cursor: pointer;
     }

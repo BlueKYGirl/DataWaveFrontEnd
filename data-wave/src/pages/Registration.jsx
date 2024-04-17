@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
 
 const Registration = () => {
   const [email, setEmail] = useState("");
@@ -11,11 +12,12 @@ const Registration = () => {
   };
 
   return (
-    <div>
+    <div className="loginContainer">
+      <img id="loginLogo" src="./logo_trans.png" alt="DataWave logo" />
       <h2>Registration</h2>
       <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="email">Email:</label>
+        <div id="email">
+          <label htmlFor="email">Email: </label>
           <input
             type="email"
             id="email"
@@ -23,8 +25,9 @@ const Registration = () => {
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
-        <div>
-          <label htmlFor="password">Password:</label>
+        <div id="password">
+          <label htmlFor="password">Password: </label>  
+          &nbsp;
           <input
             type="password"
             id="password"
@@ -32,7 +35,9 @@ const Registration = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
+        <div id="submitLogin">
         <button type="submit">Register</button>
+        </div>
       </form>
     </div>
   );
