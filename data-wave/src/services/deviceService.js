@@ -78,6 +78,15 @@ const swapPhoneNumber = async (swapRequest) => {
     }
 };
 
+const getAllDevicesByPhoneNumber = async (phoneNumber) => {
+    try {
+        const allDevices = await getAllDevices();
+        const devices = allDevices.filter(device => device.phoneNumber === phoneNumber);
+        return devices;
+    } catch (error) {
+        throw new Error(`Failed to fetch devices for phone number ${phoneNumber}`);
+    }
+};
 export { 
     getAllDevices, 
     getDeviceById, 
@@ -86,5 +95,6 @@ export {
     createDevice, 
     deleteDevice, 
     updateDevice,
-    swapPhoneNumber 
+    swapPhoneNumber,
+    getAllDevicesByPhoneNumber 
 };
