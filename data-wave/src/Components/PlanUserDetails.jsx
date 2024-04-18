@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getPlanById } from '../services/planService';
 import { getAllDevicesByPlanUserId } from '../services/deviceService';
-import AddDevice from './AddDevice';
+import AddDevice from './AddDeviceToPlan';
 import RemoveDevice from './RemoveDevice';
 import CancelPlanComponent from '../Components/CancelPlan';
 
@@ -55,8 +55,8 @@ const PlanUserDetails = ({ planUser, updatePlanUserList }) => {
           <p>Device Count: {deviceCount}/{deviceLimit}</p>
         </>
       )}
-      {/* Pass the updateDeviceList callback function as a prop */}
-      <AddDevice planUser={planUser} updatePlanUserList={updatePlanUserList} updateDeviceList={updateDeviceList} />
+      {/* Conditionally render AddDevice based on device count and limit */}
+      {deviceCount < deviceLimit && <AddDevice planUser={planUser} updatePlanUserList={updatePlanUserList} updateDeviceList={updateDeviceList} />}
       {/* Pass the updateDeviceList callback function as a prop */}
       {deviceCount > 0 && <RemoveDevice planUser={planUser} updatePlanUserList={updatePlanUserList} updateDeviceList={updateDeviceList} />}
       <CancelPlanComponent planUserGuid={planUser.id} updatePlanUserList={updatePlanUserList} deviceCount={deviceCount}/>

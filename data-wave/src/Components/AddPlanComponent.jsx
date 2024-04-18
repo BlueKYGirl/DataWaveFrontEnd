@@ -61,13 +61,12 @@ const AddPlanComponent = ({updatePlanUserList}) => {
       <button onClick={toggleDropdown} className="add-plan-button">Add a Plan</button>
       {showDropdown && (
         <div className="dropdown">
-          <div className="dropdown-content">
+          <select value={selectedPlan ? selectedPlan.id : ''} onChange={(e) => selectPlan(plans.find(plan => plan.id === e.target.value))}>
+            <option value="">Select a plan</option>
             {plans.map((plan) => (
-              <div key={plan.id} onClick={() => selectPlan(plan)} className="dropdown-item">
-                {plan.planName}
-              </div>
+              <option key={plan.id} value={plan.id}>{plan.planName}</option>
             ))}
-          </div>
+          </select>
         </div>
       )}
       {/* Confirmation dialog */}

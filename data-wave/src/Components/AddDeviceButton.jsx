@@ -1,65 +1,97 @@
-// AddDevice.js
 
-import React, { useState, useEffect } from 'react';
-import { getAllDevicesByUserId, updateDevice } from '../services/deviceService.js';
-import { formatPhoneNumber } from '../functions/phoneNumber.js';
+import React, { useState } from 'react';
+import { createDevice, getAllDevicesByPhoneNumber } from '../services/deviceService';
 
-const AddDevice = ({ planUser, updateDeviceList, updatePlanUserList }) => {
-  const [devices, setDevices] = useState([]);
-  const [selectedDeviceId, setSelectedDeviceId] = useState('');
-
-  useEffect(() => {
-    const fetchDevices = async () => {
-      try {
-        const userDevices = await getAllDevicesByUserId(planUser.userId);
-        // Filter devices that are not associated with any planUser
-        const unassignedDevices = userDevices.filter(device => !device.planUserId);
-        setDevices(unassignedDevices);
-      } catch (error) {
-        console.error('Error fetching devices:', error.message);
-      }
-    };
-
-    fetchDevices();
-  }, [planUser, updateDeviceList]);
-
-  const handleDeviceSelect = (deviceId) => {
-    setSelectedDeviceId(deviceId);
-  };
+const AddDeviceButton = ({ userId, updateDevices }) => {
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [formattedPhoneNumber, setFormattedPhoneNumber] = useState('');
+  const [error, setError] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
 
   const handleAddDevice = async () => {
-    if (!selectedDeviceId) {
-      alert('Please select a device to add');
-      return;
-    }
-
     try {
-      // Update the device with the planUserId
-      await updateDevice(selectedDeviceId, { planUserId: planUser.id });
-      alert('Device added successfully');
+      // Validate phone number format
+      if (!isValidPhoneNumber(phoneNumber)) {
+        setError('Please enter a valid 10-digit phone number.');
+        return;
+      }
 
-      // Call the updateDeviceList function passed from the parent component
-      updateDeviceList();
-      updatePlanUserList();
-      setSelectedDeviceId(''); // Reset the selected device
+      // Check if the phone number is already in the database
+      const isUnique = await checkUniquePhoneNumber(phoneNumber);
+      if (!isUnique) {
+        setError('Phone number already exists in the database.');
+        return;
+      }
+
+      // Create a new device for the user
+      await createDevice(userId, { phoneNumber });
+      // Update the list of devices
+      updateDevices();
+      // Clear input and error state after successful addition
+      setPhoneNumber('');
+      setFormattedPhoneNumber('');
+      setError('');
+      setSuccessMessage('Device added successfully.');
+      // Clear success message after some time
+      setTimeout(() => {
+        setSuccessMessage('');
+      }, 3000); // 3 seconds
     } catch (error) {
       console.error('Error adding device:', error.message);
-      alert('Failed to add device');
     }
+  };
+
+  // Function to validate phone number format
+  const isValidPhoneNumber = (phoneNumber) => {
+    const phoneNumberRegex = /^\d{10}$/;
+    return phoneNumberRegex.test(phoneNumber);
+  };
+
+  // Function to check if the phone number is unique
+  const checkUniquePhoneNumber = async (phoneNumber) => {
+    try {
+      // Fetch devices by phone number
+      const devices = await getAllDevicesByPhoneNumber(phoneNumber);
+      // If no devices found, phone number is unique
+      return devices.length === 0;
+    } catch (error) {
+      console.error('Error checking phone number uniqueness:', error.message);
+      return false;
+    }
+  };
+
+  // Function to format phone number as user types
+  const handlePhoneNumberChange = (inputPhoneNumber) => {
+    const formatted = inputPhoneNumber.replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
+    setFormattedPhoneNumber(formatted);
+    setPhoneNumber(inputPhoneNumber.replace(/\D/g, '')); // Remove non-numeric characters
+  };
+
+  const handleAcknowledgeError = () => {
+    setError('');
   };
 
   return (
-    <div className='add-device'>
-      <h3>Add a Device</h3>
-      <select value={selectedDeviceId} onChange={(e) => handleDeviceSelect(e.target.value)}>
-        <option value="">Select a device</option>
-        {devices.map(device => (
-          <option key={device.id} value={device.id}>{`Phone Number - ${formatPhoneNumber(device.phoneNumber)}`}</option>
-        ))}
-      </select>
-      <button id='addDevice' onClick={handleAddDevice}>Add Device</button>
+    <div>
+      <input
+        type="text"
+        placeholder="Enter phone number"
+        value={formattedPhoneNumber}
+        onChange={(e) => handlePhoneNumberChange(e.target.value)}
+      />
+      {error && (
+        <div>
+          <p>{error}</p>
+          <button onClick={handleAcknowledgeError}>OK</button>
+        </div>
+      )}
+      {successMessage && <p>{successMessage}</p>}
+      <button onClick={handleAddDevice}>Add Device</button>
+
     </div>
   );
 };
 
-export default AddDevice;
+
+export default AddDeviceButton;
+
