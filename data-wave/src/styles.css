@@ -65,7 +65,7 @@
         background-color: black;
         color: var(--ltblue);
          text-align: center;
-         position: fixed;
+         position: relative;
          left: 0;
          bottom: 0;
          width: 100%;
@@ -152,4 +152,63 @@
     button:hover {
         color: var(--blue);
         cursor: pointer;
+    }
+    #accountPageHeader {
+        text-align: center;
+    }
+    .nameAndEmail {
+        display: flex;
+        margin-right: 100px;
+        justify-content: space-between;
+
+    }
+    #accountName {
+        font-weight: bold;
+    }
+    #accountEmail {
+        font-weight: bold;
+    }   
+    #bill {
+        align-content: center;
+        width: fit-content;
+        margin-bottom: 20px;
+       
+    }
+    .billInfo {
+        display: flex;
+        flex-direction: column;
+        
+    }
+    .billDetails {
+        display: flex;
+       flex-direction: column;
+       justify-content: center;
+       align-items: start;
+       background-color: white;
+        margin-top: 20px;
+        margin-bottom: 30px;
+        margin-left: 20px;
+        margin-right: 20px;
+        padding-left: 10px;
+        box-shadow: 6px 2px 5px 0px rgba(0,0,0,0.55);
+        -webkit-box-shadow: 6px 2px 5px 0px rgba(0,0,0,0.55);
+        -moz-box-shadow: 6px 2px 5px 0px rgba(0,0,0,0.55);
+    }
+    #plans {
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
+        margin-top: 20px;
+        margin-bottom: 30px;
+        margin-left: 20px;
+        margin-right: 20px;
+        padding-left: 10px;
+        box-shadow: 6px 2px 5px 0px rgba(0,0,0,0.55);
+        -webkit-box-shadow: 6px 2px 5px 0px rgba(0,0,0,0.55);
+        -moz-box-shadow: 6px 2px 5px 0px rgba(0,0,0,0.55);
+    }
+    .bulletList {
+        text-decoration: none;
     }

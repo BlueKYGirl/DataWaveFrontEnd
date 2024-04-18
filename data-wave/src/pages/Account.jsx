@@ -7,6 +7,7 @@ import AddPlanComponent from '../Components/AddPlanComponent';
 import PlanUsersById from '../Components/PlanUsersById';
 import { getAllPlanUsers } from '../services/planUserService'; // Import the getAllPlanUsers function
 import UserBill from '../Components/UserBill';
+import "../styles.css";
 
 const Account = () => {
   const { userGuid } = useContext(UserContext);
@@ -44,21 +45,23 @@ const Account = () => {
   return (
     <>
       <Header />
-      <div>
-        <h1>Account Details</h1>
+      <h1 id="accountPageHeader">Account Details</h1>
+      <div className='accountDetails'>
+        
         {user && (
-          <div>
-            <p>Name: {user.fullName}</p>
-            <p>Email: {user.email}</p>
+          <div className='nameAndEmail'>
+            <p id="accountName">Name: {user.fullName}</p>
+            <p id="accountEmail">Email: {user.email}</p>
             {/* Add more user details here */}
           </div>
         )}
       </div>
-      <UserBill userId={userGuid}/>
+      <UserBill className='userBill' userId={userGuid}/>
       {/* Pass updatePlanUserList to AddPlanComponent */}
-      <AddPlanComponent updatePlanUserList={updatePlanUserList} />
+      
+      <PlanUsersById className='planDetails' userId={userGuid} updatePlanUserList={updatePlanUserList} />
+      <AddPlanComponent className='addPlan' updatePlanUserList={updatePlanUserList} />
       {/* Pass updatePlanUserList to PlanUsersById */}
-      <PlanUsersById userId={userGuid} updatePlanUserList={updatePlanUserList} />
       <Footer />
     </>
   );
