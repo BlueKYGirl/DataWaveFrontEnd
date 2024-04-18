@@ -1,7 +1,7 @@
 // AddDevice.js
 
 import React, { useState, useEffect } from 'react';
-import { getAllDevicesByUserId, updateDevice } from '../services/deviceService';
+import { getAllDevicesByUserId, updateDevice } from '../services/deviceService.js';
 import { formatPhoneNumber } from '../functions/phoneNumber.js';
 
 const AddDevice = ({ planUser, updateDeviceList, updatePlanUserList }) => {

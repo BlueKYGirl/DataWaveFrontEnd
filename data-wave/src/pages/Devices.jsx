@@ -1,17 +1,20 @@
 import React, { useState, useEffect, useContext } from 'react';
-import UserContext from '../pages/context/UserContext'; // Import the UserContext
-import { getAllDevicesByUserId } from '../services/deviceService'; // Import the function to fetch devices by user
-import { Header } from '../Components/Header'; // Import the Header component
-import { Footer } from '../Components/Footer'; // Import the Footer component
+import UserContext from '../pages/context/UserContext';
+import { getAllDevicesByUserId } from '../services/deviceService';
+import { Header } from '../Components/Header';
+import { Footer } from '../Components/Footer';
+import AddDeviceButton from '../Components/AddDeviceButton';
+import DeleteDeviceButton from '../Components/DeleteDeviceButton';
+import SwapPhoneNumberButton from '../Components/SwapPhoneNumberButton';
+import { formatPhoneNumber } from '../functions/phoneNumber';
 
 const Devices = () => {
-  const { userGuid } = useContext(UserContext); // Get userGuid from UserContext
-  const [devices, setDevices] = useState([]); // State to store user's devices
+  const { userGuid } = useContext(UserContext);
+  const [devices, setDevices] = useState([]);
 
   useEffect(() => {
     const fetchDevices = async () => {
       try {
-        // Fetch devices for the current user
         const userDevices = await getAllDevicesByUserId(userGuid);
         setDevices(userDevices);
       } catch (error) {
@@ -20,30 +23,40 @@ const Devices = () => {
     };
 
     if (userGuid) {
-      fetchDevices(); // Fetch devices only if userGuid is available
+      fetchDevices();
     }
-  }, [userGuid]); // Run effect when userGuid changes
+  }, [userGuid]);
+
+  const updateDevices = async () => {
+    try {
+      const userDevices = await getAllDevicesByUserId(userGuid);
+      setDevices(userDevices);
+    } catch (error) {
+      console.error('Error updating devices:', error.message);
+    }
+  };
 
   return (
     <>
-      <Header /> {/* Include the Header component */}
+      <Header />
       <div>
+        <AddDeviceButton userId={userGuid} updateDevices={updateDevices} />
         <h1>Devices</h1>
         <ul>
-          {/* Map over devices and render them */}
           {devices.map(device => (
             <li key={device.id}>
-              {/* Render device details */}
               <p>ID: {device.id}</p>
-              <p>Phone Number: {device.phoneNumber}</p>
-              {/* Add more device details here */}
+              <p>Phone Number: {formatPhoneNumber(device.phoneNumber)}</p>
+              <DeleteDeviceButton deviceId={device.id} updateDevices={updateDevices} />
+              <SwapPhoneNumberButton device1Id={device.id} device1PhoneNumber={device.phoneNumber} updateDevices={updateDevices} devices={devices}/>
             </li>
           ))}
         </ul>
       </div>
-      <Footer /> {/* Include the Footer component */}
+      <Footer />
     </>
   );
 };
 
 export default Devices;
+
