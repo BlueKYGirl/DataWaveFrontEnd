@@ -23,8 +23,8 @@ const PlanUsersById = ({ userId, updatePlanUserList }) => {
 
   return (
     <div>
-      <h2>Plan Users</h2>
-      <ul>
+      <h2>My Plans</h2>
+      <ul className='bulletList'>
         {planUsers.map((planUser) => (
           <li key={planUser.id}>
             {/* Pass the updatePlanUserList function as a prop */}

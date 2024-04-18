@@ -45,9 +45,9 @@ const PlanUserDetails = ({ planUser, updatePlanUserList }) => {
   };
 
   return (
-    <div>
-      <h3>Plan User Details</h3>
-      <p>Plan User ID: {planUser.id}</p>
+    <div id='plans'>
+      <h3>Plan Details</h3>
+      <p>Plan ID: {planUser.id}</p>
       {plan && (
         <>
           <p>Plan Name: {plan.planName}</p>

@@ -58,7 +58,7 @@ const AddPlanComponent = ({updatePlanUserList}) => {
 
   return (
     <div className="add-plan">
-      <button onClick={toggleDropdown} className="add-plan-button">Add Plan</button>
+      <button onClick={toggleDropdown} className="add-plan-button">Add a Plan</button>
       {showDropdown && (
         <div className="dropdown">
           <select value={selectedPlan ? selectedPlan.id : ''} onChange={(e) => selectPlan(plans.find(plan => plan.id === e.target.value))}>

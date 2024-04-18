@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { getUserBill } from '../services/userService';
 
+let date = new Date().toLocaleDateString();
+
 const UserBill = ({ userId }) => {
   const [userBill, setUserBill] = useState(null);
   const [showBill, setShowBill] = useState(false);
@@ -22,13 +24,14 @@ const UserBill = ({ userId }) => {
   };
 
   return (
-    <div>
-      <button onClick={toggleShowBill}>{showBill ? 'Hide Bill' : 'Show Bill'}</button>
+    <div className='billInfo'>
+      <button id="bill" onClick={toggleShowBill}>{showBill ? 'Hide My Bill' : 'See My Bill'}</button>
       {showBill && userBill && (
-        <div>
-          <h2>User Bill Details</h2>
-          <p>User ID: {userId}</p>
-          <p>Bill Amount: ${userBill.totalCost}</p>
+        <div className='billDetails'>
+          <h2>Invoice</h2>
+          <p>Customer ID: {userId}</p>
+          <p>Monthly Total: ${userBill.totalCost}</p>
+          <p>Invoice Date: {date}</p>
           {/* Add more bill details here */}
         </div>
       )}

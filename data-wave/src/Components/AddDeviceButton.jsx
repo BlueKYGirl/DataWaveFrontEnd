@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { createDevice, getAllDevicesByPhoneNumber } from '../services/deviceService';
 
@@ -86,8 +87,11 @@ const AddDeviceButton = ({ userId, updateDevices }) => {
       )}
       {successMessage && <p>{successMessage}</p>}
       <button onClick={handleAddDevice}>Add Device</button>
+
     </div>
   );
 };
 
+
 export default AddDeviceButton;
+
