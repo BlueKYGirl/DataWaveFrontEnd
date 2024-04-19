@@ -169,7 +169,7 @@
         align-content: center;
         width: fit-content;
         margin-bottom: 20px;
-        margin-left: 5px;     
+        margin-left: 30px;     
     }
     #bill:hover {
         background-color: var(--ltblue);

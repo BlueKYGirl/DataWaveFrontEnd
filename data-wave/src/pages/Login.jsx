@@ -34,7 +34,7 @@ const Login = () => {
       <Link to="/">
         <img id="loginLogo" src="./logo_trans.png" alt="DataWave logo" />
       </Link>
-      <h2>Login</h2>
+      <h2>Log In</h2>
       {error && <p style={{ color: "red" }}>{error}</p>}
       <form onSubmit={handleSubmit}>
         <div id="email">
