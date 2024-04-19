@@ -72,7 +72,7 @@ const AddPlanComponent = ({updatePlanUserList}) => {
       {/* Confirmation dialog */}
       {selectedPlan && (
         <div className="confirmation-dialog">
-          <p>Selected Plan: {selectedPlan.planName}</p>
+          <p id='selectedPlan'>Selected Plan: {selectedPlan.planName}</p>
           <div>
             <button onClick={confirmAddPlanUser} className="confirm-button">Confirm</button>
             <button onClick={cancelSelection} className="cancel-button">Cancel</button>

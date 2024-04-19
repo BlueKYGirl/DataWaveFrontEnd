@@ -27,12 +27,12 @@ const DeleteDeviceButton = ({ deviceId, updateDevices }) => {
   return (
     <div>
       {!showConfirmation ? (
-        <button onClick={() => setShowConfirmation(true)}>Delete Device</button>
+        <button id='deleteDeviceButton'onClick={() => setShowConfirmation(true)}>Delete Device</button>
       ) : (
         <div>
-          <p>Are you sure you want to delete this device?</p>
-          <button onClick={handleConfirmDelete}>Confirm</button>
-          <button onClick={handleCancelDelete}>Cancel</button>
+          <p id='deleteDeviceMessage'>Are you sure you want to delete this device?</p>
+          <button id='confirmDeleteButton'onClick={handleConfirmDelete}>Confirm</button>
+          <button id='cancelDeleteButton'onClick={handleCancelDelete}>Cancel</button>
         </div>
       )}
     </div>

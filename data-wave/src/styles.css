@@ -3,34 +3,28 @@
     --blue: #008dda;
     --teal: #41c9e2;
     --ltblue: #ace2e1;
-   }
-   html{
-    min-height: 100vh;
-   }
-   body {
-    display: flex;
-    flex-direction: column;
-    background-color: var(--white);
-    color: var(--blue);
-    min-height: 100vh;
-    font-family: Tahoma, Verdana, Segoe, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-
-}
+       }
+    body {
+        display: flex;
+        margin: 0;
+        flex-direction: column;
+        background-color: var(--white);
+        color: var(--blue);
+        min-height: 100vh;
+        font-family: Tahoma, Verdana, Segoe, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
     header {
         display: flex;
         justify-content: space-between;
-        background-color: black;
-      
-        
+        background-color: black;     
     }
     nav {
         display: flex;
         justify-content: flex-start;
         align-items: center;
-        margin-right: 0px;
-        
+        margin-right: 0px;       
         font-size: medium;
         font-weight: bold;
         padding-left: 90px;
@@ -39,19 +33,15 @@
     .deviceMenu {
         display: flex;
         justify-content: center;
-        margin-right: 100px;
-        
-        margin-left: 30px;
-       
-        
+        margin-right: 100px;     
+        margin-left: 30px;    
     }
     .deviceMenu:hover {
         color: var(--teal);
         cursor: pointer;
     }
     .accountMenu {
-        margin-right: 100px;
-        
+        margin-right: 100px;      
     }
     .accountMenu:hover {
         color: var(--teal);
@@ -60,7 +50,6 @@
     .login {
         display: flex;        
         margin-right: 20px;
-
     }
     .login:hover {
         color: var(--teal);
@@ -70,26 +59,8 @@
         background-color: black;
         color: var(--ltblue);
         text-align: center;
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        padding: 20px; /* Adjust as needed */
-    }
-    
-    body {
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-        margin: 0;
-        position: relative;
-    }
-    
-    main {
-        flex: 1;
-        /* Add other styles for main content */
-    }
-    
+        margin-top: auto;
+    }    
     #slogan {
         font-weight: bolder;
         font-style: italic;
@@ -148,8 +119,7 @@
         display: flex;
         justify-content: center;
         margin-top: 10px;
-        margin-bottom: 10px;
-        
+        margin-bottom: 10px;      
     }
     #loginLogo {
         width: 100px;
@@ -180,24 +150,34 @@
         display: flex;
         margin-right: 100px;
         justify-content: space-between;
-
     }
     #accountName {
         font-weight: bold;
+        margin-left: 5px;
     }
     #accountEmail {
         font-weight: bold;
     }   
     #bill {
+        background-color: var(--blue);
+        color: var(--white);
+        font-weight: bold;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
         align-content: center;
         width: fit-content;
         margin-bottom: 20px;
-       
+        margin-left: 5px;     
+    }
+    #bill:hover {
+        background-color: var(--ltblue);
+        color: var(--blue);
     }
     .billInfo {
         display: flex;
-        flex-direction: column;
-        
+        flex-direction: column;       
     }
     .billDetails {
         display: flex;
@@ -229,7 +209,121 @@
         -webkit-box-shadow: 6px 2px 5px 0px rgba(0,0,0,0.55);
         -moz-box-shadow: 6px 2px 5px 0px rgba(0,0,0,0.55);
     }
+    #myPlansHeader {
+        margin-left: 3px;
+    }
     .bulletList {
         text-decoration: none;
         padding-left: 0px;
     }
+    .cancel-plan-button {
+        margin-top: 25px;
+        background-color: var(--ltblue);
+    }
+    .add-plan-button {
+        background-color: var(--blue);
+        color: var(--white);
+        font-weight: bold;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-left: 30px;
+        margin-right: 6px;
+        margin-bottom: 20px;
+    } 
+    .add-plan-button:hover {
+        background-color: var(--ltblue);
+        color: var(--blue);
+    }
+    .add-plan {
+        display: flex;
+    }
+    #selectedPlan {
+        font-weight: bold;
+    }
+    .deviceDisplay {
+        list-style-type: none;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
+        margin-top: 20px;
+        margin-bottom: 30px;
+        margin-left: 20px;
+        margin-right: 20px;
+        padding-left: 10px;
+        box-shadow: 6px 2px 5px 0px rgba(0,0,0,0.55);
+        -webkit-box-shadow: 6px 2px 5px 0px rgba(0,0,0,0.55);
+        -moz-box-shadow: 6px 2px 5px 0px rgba(0,0,0,0.55);
+    }
+    .addNewDevice {
+        margin-left: 30px;
+    }
+    #addDeviceButton {
+        background-color: var(--blue);
+        color: var(--white);
+        margin-left: 6px;
+        border: none;
+        border-radius: 3px;
+        padding: 3px 5px;
+        cursor: pointer;  
+    }
+    #addDeviceButton:hover {
+        background-color: var(--teal);  
+        color: var(--blue);
+    }
+    .deviceList {
+        list-style-type: none;
+    }
+    #phoneNumber {
+        font-weight: bold;
+    }
+    #deleteDeviceButton {
+        background-color: var(--blue);
+        font-weight: bold;
+        color: var(--white);
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-bottom: 10px;
+    }
+    #swapPhoneButton {
+        background-color: var(--teal);
+        font-weight: bold;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    #swapPhoneButton:hover {
+        background-color: var(--ltblue);
+        color: var(--blue);
+    } 
+    #deleteDeviceButton:hover {
+        background-color: var(--ltblue);
+        color: var(--blue);
+    }   
+    #confirmDeleteButton {
+        margin-bottom: 6px;
+        margin-right: 5px;
+    } 
+    #cancelDeleteButton {
+        margin-bottom: 6px;        
+    }
+    #confirmSwapButton {
+        margin-left: 3px;
+        margin-right: 3px;
+    }
+    #swapCancelButton {
+
+    }
+    #addDeviceToPlanBtn {
+        margin-left: 5px;
+    }
+    #removeDevice {
+        margin-left: 5px;
+    } 

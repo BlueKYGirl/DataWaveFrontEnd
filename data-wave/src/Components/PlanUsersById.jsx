@@ -23,7 +23,7 @@ const PlanUsersById = ({ userId, updatePlanUserList }) => {
 
   return (
     <div>
-      <h2>My Plans</h2>
+      <h2 id='myPlansHeader'>My Plans</h2>
       <ul className='bulletList'>
         {planUsers.map((planUser) => (
           <li key={planUser.id}>

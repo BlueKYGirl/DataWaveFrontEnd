@@ -50,14 +50,14 @@ const AddDevice = ({ planUser, updateDeviceList, updatePlanUserList }) => {
 
   return (
     <div>
-      <h3>Add Device</h3>
+      <h3>Add a Device</h3>
       <select value={selectedDeviceId} onChange={(e) => handleDeviceSelect(e.target.value)}>
         <option value="">Select a device</option>
         {devices.map(device => (
           <option key={device.id} value={device.id}>{`Phone Number - ${formatPhoneNumber(device.phoneNumber)}`}</option>
         ))}
       </select>
-      <button onClick={handleAddDevice}>Add Device</button>
+      <button id='addDeviceToPlanBtn'onClick={handleAddDevice}>Add Device</button>
     </div>
   );
 };
