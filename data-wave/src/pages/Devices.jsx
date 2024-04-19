@@ -38,8 +38,9 @@ const Devices = () => {
 
   return (
     <>
-      <Header />
+      
       <body>
+      <Header />
       <div className='deviceDisplay'>
         
         <h1>Devices</h1>

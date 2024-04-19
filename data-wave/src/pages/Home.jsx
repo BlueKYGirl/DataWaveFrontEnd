@@ -43,8 +43,9 @@ export function Home() {
 
     return (
         <>
-            <Header />
-<body>
+           
+    <body>
+        <Header />
             <div className="logo-container">
            
             <img className="wordLogo" alt="word logo" src="./words_trans.png"/>

@@ -44,8 +44,9 @@ const Account = () => {
 
   return (
     <>
-      <Header />
+      
       <body>
+      <Header />
       <h1 id="accountPageHeader">Account Details</h1>
       <div className='accountDetails'>
         
