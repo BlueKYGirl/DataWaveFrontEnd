@@ -4,7 +4,6 @@
     --teal: #41c9e2;
     --ltblue: #ace2e1;
        }
-  
     body {
         display: flex;
         margin: 0;
@@ -15,23 +14,17 @@
         font-family: Tahoma, Verdana, Segoe, sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        
-
     }
-
     header {
         display: flex;
         justify-content: space-between;
-        background-color: black;
-      
-        
+        background-color: black;     
     }
     nav {
         display: flex;
         justify-content: flex-start;
         align-items: center;
-        margin-right: 0px;
-        
+        margin-right: 0px;       
         font-size: medium;
         font-weight: bold;
         padding-left: 90px;
@@ -40,19 +33,15 @@
     .deviceMenu {
         display: flex;
         justify-content: center;
-        margin-right: 100px;
-        
-        margin-left: 30px;
-       
-        
+        margin-right: 100px;     
+        margin-left: 30px;    
     }
     .deviceMenu:hover {
         color: var(--teal);
         cursor: pointer;
     }
     .accountMenu {
-        margin-right: 100px;
-        
+        margin-right: 100px;      
     }
     .accountMenu:hover {
         color: var(--teal);
@@ -61,7 +50,6 @@
     .login {
         display: flex;        
         margin-right: 20px;
-
     }
     .login:hover {
         color: var(--teal);
@@ -70,10 +58,9 @@
     footer {
         background-color: black;
         color: var(--ltblue);
-         text-align: center;
-         margin-top: auto;
-        
-    }
+        text-align: center;
+        margin-top: auto;
+    }    
     #slogan {
         font-weight: bolder;
         font-style: italic;
@@ -115,7 +102,6 @@
         -webkit-box-shadow: 6px 2px 5px 0px rgba(0,0,0,0.55);
         -moz-box-shadow: 6px 2px 5px 0px rgba(0,0,0,0.55);
     }
-    
     #email {
         display: flex;
        justify-content: space-between;
@@ -133,8 +119,7 @@
         display: flex;
         justify-content: center;
         margin-top: 10px;
-        margin-bottom: 10px;
-        
+        margin-bottom: 10px;      
     }
     #loginLogo {
         width: 100px;
@@ -165,7 +150,6 @@
         display: flex;
         margin-right: 100px;
         justify-content: space-between;
-
     }
     #accountName {
         font-weight: bold;
@@ -185,8 +169,7 @@
         align-content: center;
         width: fit-content;
         margin-bottom: 20px;
-        margin-left: 5px;
-       
+        margin-left: 5px;     
     }
     #bill:hover {
         background-color: var(--ltblue);
@@ -194,8 +177,7 @@
     }
     .billInfo {
         display: flex;
-        flex-direction: column;
-        
+        flex-direction: column;       
     }
     .billDetails {
         display: flex;
@@ -240,15 +222,15 @@
     }
     .add-plan-button {
         background-color: var(--blue);
-    color: var(--white);
-    font-weight: bold;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-left: 30px;
-    margin-right: 6px;
-    margin-bottom: 20px;
+        color: var(--white);
+        font-weight: bold;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-left: 30px;
+        margin-right: 6px;
+        margin-bottom: 20px;
     } 
     .add-plan-button:hover {
         background-color: var(--ltblue);
@@ -286,13 +268,10 @@
         border: none;
         border-radius: 3px;
         padding: 3px 5px;
-        cursor: pointer;
-        
-        
+        cursor: pointer;  
     }
     #addDeviceButton:hover {
-        background-color: var(--teal);
-        
+        background-color: var(--teal);  
         color: var(--blue);
     }
     .deviceList {
@@ -310,8 +289,6 @@
         border-radius: 5px;
         cursor: pointer;
         margin-bottom: 10px;
-        
-
     }
     #swapPhoneButton {
         background-color: var(--teal);
@@ -321,8 +298,6 @@
         border: none;
         border-radius: 5px;
         cursor: pointer;
-       
-
     }
     #swapPhoneButton:hover {
         background-color: var(--ltblue);
@@ -335,12 +310,9 @@
     #confirmDeleteButton {
         margin-bottom: 6px;
         margin-right: 5px;
-
     } 
     #cancelDeleteButton {
-        margin-bottom: 6px;
-       
-        
+        margin-bottom: 6px;        
     }
     #confirmSwapButton {
         margin-left: 3px;
@@ -354,5 +326,4 @@
     }
     #removeDevice {
         margin-left: 5px;
-    }
-    
+    } 
