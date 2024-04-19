@@ -25,12 +25,12 @@ const getUserById = async (id) => {
     }
 };
 
-const createUser = async (user) => {
+const registerUser = async (user) => {
+    console.log("user:", JSON.stringify(user));
     try {
-        const response = await http.post('/user', user);
-        return response.data;
+        await http.post('/user', user);
     } catch (error) {
-        throw new Error("Failed to create user");
+        throw new Error("Failed to register user");
     }
 };
 
@@ -43,4 +43,13 @@ const getUserBill = async (userId) => {
     }
 };
 
-export { getAllUsers, getUserById, createUser, getUserBill };
+const authenticateUser = async (email, password) => {
+    try {
+        const response = await http.post('/user/authenticate', { email, password });
+        return response.data;
+    } catch (error) {
+        throw new Error("Authentication failed");
+    }
+};
+
+export { getAllUsers, getUserById, registerUser, getUserBill, authenticateUser };
