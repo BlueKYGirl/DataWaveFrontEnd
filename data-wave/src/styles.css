@@ -238,6 +238,7 @@
     }
     .add-plan {
         display: flex;
+        
     }
     #selectedPlan {
         font-weight: bold;
@@ -327,3 +328,26 @@
     #removeDevice {
         margin-left: 5px;
     } 
+    #firstName {
+        margin-bottom: 6px;
+    }
+    #logLink:link{
+        text-decoration: none;
+    }
+    #logLink:hover {
+        color: var(--teal);
+        cursor: pointer;
+    }
+    #logLink:active {
+        color: var(--ltblue);
+    }
+    #logLink:visited {
+        color: var(--teal);
+    }
+    .confirm-button {
+        margin-bottom: 20px;
+        
+    }
+    .cancel-button {
+        margin-bottom: 20px;
+    }

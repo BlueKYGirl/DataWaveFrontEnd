@@ -70,7 +70,7 @@ const Registration = () => {
         </div>
       </form>
       <p className="loginMessage">
-        Already have an account? <Link to="/login">Login here</Link>.
+        Already have an account? <Link id='logLink' to="/login">Login here</Link>.
       </p>
     </div>
   );
