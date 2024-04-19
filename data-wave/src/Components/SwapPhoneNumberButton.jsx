@@ -39,12 +39,12 @@ const SwapPhoneNumberButton = ({ device1Id, device1PhoneNumber, updateDevices, d
 
   return (
     <>
-      <button onClick={() => setShowConfirmation(true)}>Swap Phone Numbers</button>
+      <button id='swapPhoneButton'onClick={() => setShowConfirmation(true)}>Switch Phone Number</button>
       {showConfirmation && (
         <div>
-          <p>Are you sure you want to swap phone numbers for this device?</p>
+          <p id='swapPhoneMessage'>Are you sure you want to swap phone numbers for this device?</p>
           <select value={selectedDeviceId} onChange={(e) => setSelectedDeviceId(e.target.value)}>
-            <option value="">Select a phone number to swap with</option>
+            <option value="">Select the new phone #</option>
             {/* Map over devices and render options */}
             {/* Exclude the current device */}
             {devices
@@ -54,11 +54,11 @@ const SwapPhoneNumberButton = ({ device1Id, device1PhoneNumber, updateDevices, d
               ))
             }
           </select>
-          <button onClick={handleSwapPhoneNumber}>Confirm</button>
-          <button onClick={() => setShowConfirmation(false)}>Cancel</button>
+          <button id='confirmSwapButton'onClick={handleSwapPhoneNumber}>Confirm</button>
+          <button id='swapCancelButton'onClick={() => setShowConfirmation(false)}>Cancel</button>
         </div>
       )}
-      {swapSuccess && <p>Phone numbers swapped successfully!</p>}
+      {swapSuccess && <p id='swapSuccessMessage'>Phone numbers swapped successfully!</p>}
     </>
   );
 };

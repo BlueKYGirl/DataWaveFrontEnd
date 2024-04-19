@@ -72,13 +72,16 @@ const AddDeviceButton = ({ userId, updateDevices }) => {
   };
 
   return (
-    <div>
+    <div className='addNewDevice'>
+      <h2>Add a New Device to Your Account</h2>
+     
       <input
         type="text"
         placeholder="Enter phone number"
         value={formattedPhoneNumber}
         onChange={(e) => handlePhoneNumberChange(e.target.value)}
       />
+       <button id='addDeviceButton' onClick={handleAddDevice}>Add Device</button>
       {error && (
         <div>
           <p>{error}</p>
@@ -86,7 +89,7 @@ const AddDeviceButton = ({ userId, updateDevices }) => {
         </div>
       )}
       {successMessage && <p>{successMessage}</p>}
-      <button onClick={handleAddDevice}>Add Device</button>
+      
 
     </div>
   );

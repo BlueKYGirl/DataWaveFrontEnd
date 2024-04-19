@@ -44,7 +44,7 @@ export function Home() {
     return (
         <>
             <Header />
-
+<body>
             <div className="logo-container">
            
             <img className="wordLogo" alt="word logo" src="./words_trans.png"/>
@@ -55,10 +55,12 @@ export function Home() {
         <PlanDetails key={plan.id} plan={plan} />
     ))}
 </div>
-           
-           
+<footer>
 
-            <Footer />
+<Footer /> 
+</footer>
+</body>     
+
         </>
     );
 }

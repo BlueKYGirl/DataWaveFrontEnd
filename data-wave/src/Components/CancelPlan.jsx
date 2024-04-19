@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { deletePlanUser } from '../services/planUserService';
 import '../styles/cancelPlan.css';
+;
 
 const CancelPlanComponent = ({ planUserGuid, updatePlanUserList, deviceCount }) => {
   const [showConfirmation, setShowConfirmation] = useState(false);

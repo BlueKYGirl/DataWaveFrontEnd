@@ -45,6 +45,7 @@ const Account = () => {
   return (
     <>
       <Header />
+      <body>
       <h1 id="accountPageHeader">Account Details</h1>
       <div className='accountDetails'>
         
@@ -62,7 +63,11 @@ const Account = () => {
       <PlanUsersById className='planDetails' userId={userGuid} updatePlanUserList={updatePlanUserList} />
       <AddPlanComponent className='addPlan' updatePlanUserList={updatePlanUserList} />
       {/* Pass updatePlanUserList to PlanUsersById */}
+      <footer>
       <Footer />
+      </footer>
+      </body>
+     
     </>
   );
 };

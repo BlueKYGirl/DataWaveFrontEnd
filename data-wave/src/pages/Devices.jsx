@@ -39,21 +39,31 @@ const Devices = () => {
   return (
     <>
       <Header />
-      <div>
-        <AddDeviceButton userId={userGuid} updateDevices={updateDevices} />
+      <body>
+      <div className='deviceDisplay'>
+        
         <h1>Devices</h1>
-        <ul>
+        <ul className='deviceList'>
           {devices.map(device => (
             <li key={device.id}>
-              <p>ID: {device.id}</p>
-              <p>Phone Number: {formatPhoneNumber(device.phoneNumber)}</p>
+              
+              <p id='phoneNumber'>Phone Number: {formatPhoneNumber(device.phoneNumber)}</p>
+              <p id='phoneID'>Device ID: {device.id}</p>
+              <div className='modifyDevices'>
               <DeleteDeviceButton deviceId={device.id} updateDevices={updateDevices} />
               <SwapPhoneNumberButton device1Id={device.id} device1PhoneNumber={device.phoneNumber} updateDevices={updateDevices} devices={devices}/>
+              </div>
             </li>
           ))}
         </ul>
+       
       </div>
+      <AddDeviceButton className='addDevice' userId={userGuid} updateDevices={updateDevices} />
+      <footer>
       <Footer />
+      </footer>
+      </body>
+     
     </>
   );
 };
